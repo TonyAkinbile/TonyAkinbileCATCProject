@@ -63,3 +63,61 @@ do
     fi
 done
 
+
+
+
+# Start at current year (e.g., 2025)
+# Repeat for number of points:
+#    If manager → increment salary twice
+#    Else → increment salary once
+#    Print salary and year
+#    Move to next year
+
+
+# ==========================
+# SALARY CALCULATION OUTPUT
+# ==========================
+
+year=$(date +%Y)   # Get current year
+echo ""
+echo "===== SALARY SCALE TABLE ====="
+echo ""
+
+for ((i = 1; i <= points; i++)); do
+    echo "Year $year: €$salary"
+
+    # Check if employee is a manager
+    if [ "$manager" == "yes" ]; then
+        salary=$((salary + (2 * increment)))
+    else
+        salary=$((salary + increment))
+    fi
+
+    year=$((year + 1))  # Move to next year
+done
+
+echo ""
+echo "===== END OF TABLE ====="
+
+
+
+#
+# current_salary=$salary
+#
+# echo ""
+# echo "===== SALARY SCALE TABLE ===="
+#
+# for (( year=1; year<=points; year++ ))
+# do
+#     echo "Year $year: €$current_salary"
+#
+#     # If manager, double the increment
+#     if [ "$manager" == "yes" ]; then
+#         current_salary=$(( current_salary + (increment * 2) ))
+#     else
+#         current_salary=$(( current_salary + increment ))
+#     fi
+# done
+
+
+
