@@ -29,3 +29,37 @@ read increment
 echo "Is the employee a manager? (yes/no):"
 read manager
 
+
+
+# ==========================
+# SALARY CALCULATION LOOP
+# ==========================
+# If manager → use double increment
+# Loop through 1 to number of points
+# Calculate and print the salary for each year
+
+
+
+# ==========================
+# SALARY CALCULATION LOOP
+# ==========================
+
+# Set the initial value to current salary
+current_salary=$salary
+
+echo ""
+echo "==== SALARY SCALE TABLE ===="
+
+# Loop from 1 to the number of points
+for (( year=1; year<=points; year++ ))
+do
+    echo "Year $year: €$current_salary"
+
+    # If manager, double the increment
+    if [ "$manager" = "yes" ]; then
+        current_salary=$(( current_salary + (increment * 2) ))
+    else
+        current_salary=$(( current_salary + increment ))
+    fi
+done
+
